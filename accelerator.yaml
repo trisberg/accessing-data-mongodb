@@ -1,0 +1,21 @@
+accelerator:
+  displayName: Accessing Data with MongoDB
+  description: Learn how to persist data in MongoDB.
+  iconUrl: https://spring.io/images/guides-7983d4cd334dbbf39734aebf3de91a4e.svg
+  tags:
+    - java
+    - spring
+    - mongodb
+    - guide
+
+engine:
+  merge:
+    - include: [ "README.md" ]
+    - include: [ "guide/pom.xml", "guide/.mvn/**", "guide/mvnw", "guide/mvnw.exe" ]
+      chain:
+      - type: RewritePath
+        rewriteTo: "#filename"
+    - include: [ "guide/src" ]
+      chain:
+      - type: RewritePath
+        rewriteTo: "#filename"
