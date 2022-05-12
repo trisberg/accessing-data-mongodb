@@ -18,5 +18,5 @@ engine:
     - include: [ "guide/src/**" ]
       chain:
       - type: RewritePath
-        regex: "^guide\/(?<folder>.*\/)?(?<filename>([^\/]+?|)(?=(?<ext>\.[^\/.]*)?)$)"
+        regex: "^(?<folder>.*/)?(?<filename>([^/]+?|)(?=(?<ext>\.[^/.]*)?)$)"
         rewriteTo: "#folder + #filename"
