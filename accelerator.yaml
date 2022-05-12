@@ -11,10 +11,15 @@ accelerator:
 engine:
   merge:
     - include: [ "README.md" ]
-    - include: [ "guide/pom.xml", "guide/.mvn/**", "guide/mvnw", "guide/mvnw.exe" ]
+    - include: [ "guide/pom.xml", "guide/mvnw", "guide/mvnw.exe" ]
       chain:
       - type: RewritePath
         rewriteTo: "#filename"
+    - include: [ "guide/.mvn/**" ]
+      chain:
+      - type: RewritePath
+        regex: '^.mvn/(?<folder>.*/)?(?<filename>([^/]+?|)(?=(?<ext>\.[^/.]*)?)$)'
+        rewriteTo: "#folder + #filename"
     - include: [ "guide/src/**" ]
       chain:
       - type: RewritePath
